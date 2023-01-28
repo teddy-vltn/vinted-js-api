@@ -1,11 +1,10 @@
-const puppeteer = require("puppeteer");
 const cookie = require("cookie");
 
 var cookies = new Map();
+var filters = new Map();
 
 const url = "https://www.vinted.fr";
 const catalogUrl = "https://www.vinted.fr/api/v2/catalog/items";
-var filters = new Map();
 
 const fetchCookie = () => {
     return new Promise((resolve, reject) => {
@@ -64,8 +63,6 @@ const fetchItems = (parameterUrl = "") => {
 
         console.log("Starting fetching of catalog");
 
-        //parameters.append(["cookie", "_vinted_fr_session=" + vintedCookie]);
-
         fetch(catalogUrl + "?" + convertFiltersToUrl(), {
             headers : {
                 cookie: '_vinted_fr_session=' + vintedCookie
@@ -79,7 +76,8 @@ const fetchItems = (parameterUrl = "") => {
     })
 }
 
-fetchItems().then((items) => {
-    console.log(items);
-});
+//setFilter("price_to", 20);
+//fetchItems().then((items) => {
+    //console.log(items);
+//});
 
