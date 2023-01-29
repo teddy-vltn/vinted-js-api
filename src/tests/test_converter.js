@@ -1,6 +1,5 @@
-const {fetchItems} = require("../services/vinted");
+import data from "./test_catalog.json" assert { type: "json" };
 
-const data = require("./test_catalog.json");
 const items = data.items
 
 let converted = Array()

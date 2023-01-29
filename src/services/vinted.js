@@ -1,8 +1,9 @@
-const cookie = require("cookie");
 
-const {config} = require("../config/config");
-const {convertFiltersToUrl} = require("../utils/urlFormat.cjs");
-const {itemsToObject} = require("./converter");
+import cookie from "cookie";
+
+import {config} from "../config/config.js";
+import {convertFiltersToUrl} from "../utils/urlFormat.js";
+import {itemsToObject} from "./converter.js";
 
 let cookies = new Map();
 let filters = new Map();
@@ -28,11 +29,11 @@ const fetchCookie = () => {
     })
 }
 
-const setUrlFilter = (filter, value) => {
+export const setUrlFilter = (filter, value) => {
     filters.set(filter, value);
 }
 
-const fetchItems = () => {
+export const fetchItems = () => {
     return new Promise(async (resolve, reject) => {
         let vintedCookie = cookies.get(config.URL);
 
@@ -68,9 +69,4 @@ const fetchItems = () => {
             })
         })
     })
-}
-
-module.exports = {
-    fetchItems,
-    setUrlFilter
 }

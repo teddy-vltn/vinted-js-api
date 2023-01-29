@@ -1,6 +1,5 @@
-const {fetchItems} = require("../services/vinted");
 
-const itemsToObject = (items) => {
+export const itemsToObject = (items) => {
     let converted = Array()
 
     for (let itemsKey in items) {
@@ -21,8 +20,4 @@ const itemsToObject = (items) => {
     }
 
     return converted
-}
-
-module.exports = {
-    itemsToObject
 }
