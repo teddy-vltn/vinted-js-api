@@ -1,4 +1,3 @@
-
 import cookie from "cookie";
 
 import {config} from "../config/config.js";
